@@ -142,4 +142,17 @@ const linksData = [
   },
 ]
 
-const linksSection = document.getElementById
+const tabLinksSection = document.getElementById("tab-links")
+
+const generateTabLinks = () => {
+  linksData.forEach((linksSection) => {
+    const ulEl = document.createElement("ul")
+    const liEl = document.createElement("li")
+    ulEl.classList.add("title")
+    liEl.textContent = linksSection.title
+    ulEl.appendChild(liEl)
+    tabLinksSection.appendChild(ulEl)
+  })
+}
+
+generateTabLinks()
