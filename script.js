@@ -1,4 +1,4 @@
-const sections = [
+const linksData = [
   {
     title: "Financing",
     links: [
