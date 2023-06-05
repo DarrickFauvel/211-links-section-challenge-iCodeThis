@@ -3,7 +3,7 @@ const linksData = [
     title: "Financing",
     links: [
       {
-        name: "loans",
+        name: "Loans",
         url: "#",
       },
       {
@@ -142,17 +142,28 @@ const linksData = [
   },
 ]
 
+const linksLists = linksData.filter(
+  (linksList) => linksList.title !== "Calculators and Tools"
+)
+
 const tabLinksSection = document.getElementById("tab-links")
 
-const generateTabLinks = () => {
-  linksData.forEach((linksSection) => {
-    const ulEl = document.createElement("ul")
-    const liEl = document.createElement("li")
-    ulEl.classList.add("title")
-    liEl.textContent = linksSection.title
-    ulEl.appendChild(liEl)
-    tabLinksSection.appendChild(ulEl)
+const generateListLinks = (links) => {
+  let htmlContent = ""
+  links.forEach(({ name, url }) => {
+    htmlContent += `<li><a href=${url}>${name}</a></li>`
   })
+  return htmlContent
 }
 
-generateTabLinks()
+const generateListTitles = (list) => {
+  let htmlContent = `<ul>`
+  list.forEach(({ title, links }) => {
+    htmlContent += `<li class="title">${title}</li>`
+    htmlContent += generateListLinks(links)
+  })
+  htmlContent += `</ul>`
+  tabLinksSection.innerHTML = htmlContent
+}
+
+generateListTitles(linksLists)

@@ -1,11 +1,26 @@
 :root {
-  --color-white: hsl(0, 0%, 100%);
-  --color-light-grey: hsl(216, 45%, 98%);
+  --color-white: #ffffff;
+  --color-grey-light: #f8f9fc;
+  --color-grey-medium: #909bad;
+  --color-grey-dark: #33416b;
+
+  --primary-color: var(--color-grey-dark)
+  --secondary-color: var(--color-grey-medium)
 }
 
 body {
   font-family: sans-serif;
-  background-color: var(--color-light-grey);
+  background-color: var(--color-grey-light);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
 }
 
 .links-section {
@@ -16,15 +31,18 @@ body {
   margin-block: calc((180 / 16) * 1em);
   padding-inline: calc((92 / 16) * 1em);
   padding-block: calc((60 / 16) * 1em);
+}
 
-  .tab-links {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-  }
+.tabs {
+  display: flex;
+  gap: 1em;
+}
 
-  .title {
-    list-style: none;
-    font-weight: bold;
-    padding: 0;
-  }
+.title {
+  font-weight: bold;
+}
+
+.tab-links {
+  display: flex;
+  gap: 1em;
 }
