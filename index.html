@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -13,82 +14,46 @@
               seasalt: "#f8f9fc",
               cadetGray: "#909bad",
               delftBlue: "#33416b",
-              darkGreen: "#052e16",
-              marianBlue: "#1e3a8a",
+              calPolyGreen: "#14532d",
+              persianBlue: "#1e40af",
+            },
+            keyframes: {
+              slide: {
+                "0%, 100%": { transform: "translateX(10px)" },
+              },
+            },
+            animation: {
+              slide: "slide 1s ease-in-out",
             },
           },
         },
       }
     </script>
+
+    <!-- FontAwesome -->
     <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.1/dist/cdn.min.js"
+      src="https://kit.fontawesome.com/6181d1a037.js"
+      crossorigin="anonymous"
     ></script>
+
+    <!-- React -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.production.min.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
+    ></script>
+
+    <!-- Babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <title>Challenge: Links Section | iCodeThis</title>
   </head>
 
   <body class="bg-seasalt text-delftBlue">
-    <div
-      x-data="{tabs: [{title:'Personal',color: 'darkGreen'},{title:'Business', color: 'marianBlue'}], currentTab: 'Business'}"
-      class="container mx-24 my-44 px-24 py-16 bg-white border rounded-lg"
-    >
-      <!-- Tabs -->
-      <ul class="bg-seasalt p-2 rounded flex gap-2 w-fit">
-        <template x-for="tab in tabs">
-          <li
-            class="px-4 py-1 cursor-pointer"
-            x-text="tab.title"
-            x-on:click="currentTab = tab"
-            x-bind:class="tab.title === currentTab && `bg-${tab.color} text-white`"
-          ></li>
-        </template>
-      </ul>
+    <div id="app"></div>
 
-      <!-- Service categories -->
-      <ul
-        x-data='{categories: [
-        {
-          title: "Financing",
-          links: ["Loans","Overdraft facilities","Bank guaranties","Leasing","Factoring","Trade Solutions"],
-        },
-        {
-          title: "Savings and Investment",
-          links: ["Savings accounts","Asset Management","Commercial paper","Equities","Invest Products","Cash Management"],
-        },
-        {
-          title: "Transaction Banking",
-          links: ["Coporate app","Internet banking","Mbile banking","Alert services","Accounts","Cards"],
-        },
-        {
-          title: "Markets",
-          links: ["Market Reports","Equity rates","Commodities","Equities","Foreign Exchange","Investment products"],
-        }
-      ]}'
-        class="flex flex-wrap gap-3 mt-10 sm:mt-28"
-      >
-        <template x-for="category in categories">
-          <li class="text-cadetGray uppercase">
-            <span x-text="category.title"></span>
-
-            <!-- Category links -->
-            <ul class="mt-1 mb-4">
-              <template x-for="link in category.links">
-                <li>
-                  <a
-                    x-text="link"
-                    class="text-delftBlue normal-case hover:underline"
-                    href="#"
-                  ></a>
-                </li>
-              </template>
-            </ul>
-            <!-- END Category links -->
-          </li>
-        </template>
-      </ul>
-      <!-- END Service categories -->
-
-      <section></section>
-    </div>
+    <script type="text/babel" src="./script.js"></script>
   </body>
 </html>
