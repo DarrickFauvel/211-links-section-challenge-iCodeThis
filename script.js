@@ -1,5 +1,7 @@
 const Link = ({ link }) => (
-  <a href="#" class="block text-delftBlue normal-case hover:font-medium">
+  <a
+    href="#"
+    class="block text-delftBlue normal-case hover:font-medium hover:translate-x-0.5 transition">
     {link}
   </a>
 )
@@ -74,7 +76,7 @@ const Services = ({ currentTab }) => {
       {data.map((service, index) => {
         return (
           <li>
-            <span class="text-cadetGray uppercase">{service.title}</span>
+            <h2 class="text-cadetGray uppercase">{service.title}</h2>
             <Links links={service.links} />
           </li>
         )
@@ -94,7 +96,7 @@ const BankingTabs = () => {
 
   return (
     <>
-      <ul class="bg-seasalt p-2 rounded flex gap-2 w-fit">
+      <ul class={`bg-seasalt p-2 rounded flex gap-2 w-fit`}>
         {tabs.map((tab) => {
           return (
             <li
@@ -121,28 +123,51 @@ const Tools = () => {
     links: [
       {
         name: "Currency converter",
-        icon: "bitcoin",
+        icon: "bitcoin-sign",
+        color: "neonBlue",
       },
       {
         name: "Hourly Rate Converter",
         icon: "money-bills",
+        color: "heliotrope",
       },
       {
         name: "International trade",
         icon: "basket-shopping",
+        color: "frenchRose",
       },
       {
         name: "IBAN calculator",
         icon: "calculator",
+        color: "appleGreen",
       },
     ],
   }
 
-  return <h1>Calculators & Tools</h1>
+  return (
+    <ul class="bg-seasalt px-10 py-8 rounded mt-10 lg:mt-28">
+      <li>
+        <h2 class="text-cadetGray uppercase">{data.title}</h2>
+        <ul class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {data.links.map((tool, index) => {
+            return (
+              <li
+                class={`bg-white rounded shadow hover:bg-${tool.color}/10 hover:shadow-md hover:-translate-y-1 transition`}>
+                <a href="#" class="block p-4">
+                  <i class={`fa-solid fa-${tool.icon} text-${tool.color}`}></i>
+                  <span class="block mt-3">{tool.name}</span>
+                </a>
+              </li>
+            )
+          })}
+        </ul>
+      </li>
+    </ul>
+  )
 }
 
 const App = () => (
-  <div class="container mx-24 my-44 px-24 py-16 bg-white border rounded-lg">
+  <div class="container mx-auto my-44 px-24 py-16 bg-white border rounded-lg">
     <BankingTabs />
     <Tools />
   </div>
