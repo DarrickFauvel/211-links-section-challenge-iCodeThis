@@ -64,6 +64,10 @@ const Services = ({ currentTab }) => {
     },
   ]
 
+  if (currentTab.title === "Personal") {
+    data.reverse()
+  }
+
   return (
     <ul
       class={`px-4 py-3 rounded grid gap-3 mt-10 sm:grid-cols-2 lg:grid-cols-4 lg:mt-28 bg-${currentTab.color}/20 transition`}>
