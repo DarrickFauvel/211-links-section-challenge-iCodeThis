@@ -98,20 +98,19 @@ const BankingTabs = () => {
 
   return (
     <>
-      <ul class={`bg-seasalt p-2 rounded flex gap-2 w-fit`}>
-        {tabs.map((tab) => {
-          return (
-            <li
+      <ul role="tablist" class={`bg-seasalt p-2 rounded flex gap-2 w-fit`}>
+        {tabs.map((tab) => (
+          <li role="tab" key={tab.title}>
+            <button
+              onClick={() => setCurrentTabTitle(tab.title)}
               class={`px-4 py-1 rounded cursor-pointer ${
                 currentTabTitle === tab.title &&
-                `bg-${tab.color} text-white shadow transition`
-              }`}
-              key={tab.title}
-              onClick={() => setCurrentTabTitle(tab.title)}>
+                `bg-${tab.color} text-white shadow transition hover:bg-${tab.color}/80`
+              }`}>
               {tab.title}
-            </li>
-          )
-        })}
+            </button>
+          </li>
+        ))}
       </ul>
 
       <Services currentTab={currentTab[0]} />
