@@ -58,8 +58,8 @@
   <body class="bg-seasalt text-delftBlue">
     <div id="app"></div>
 
-    <script type="text/babel" src="./script.js">
-            const handleVoidClick = (e) => e.preventDefault()
+    <script type="text/babel">
+      const handleVoidClick = (e) => e.preventDefault()
 
       const Link = ({ link }) => (
         <a
@@ -159,7 +159,9 @@
 
         return (
           <>
-            <ul role="tablist" class={`bg-seasalt p-2 rounded flex gap-2 w-fit`}>
+            <ul
+              role="tablist"
+              class={`bg-seasalt p-2 rounded flex gap-2 w-fit`}>
               {tabs.map((tab) => (
                 <li role="tab" key={tab.title}>
                   <button
@@ -217,7 +219,8 @@
                     <a onClick={handleVoidClick} href="#" class="block p-4">
                       <div
                         class={`bg-${tool.color}/5 w-11 -ml-4 pl-4 pr-2 py-1 rounded-r-md group-hover:bg-${tool.color}/20`}>
-                        <i class={`fa-solid fa-${tool.icon} text-${tool.color}`}></i>
+                        <i
+                          class={`fa-solid fa-${tool.icon} text-${tool.color}`}></i>
                       </div>
                       <span class="block mt-3">{tool.name}</span>
                     </a>
