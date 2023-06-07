@@ -155,7 +155,7 @@ const Tools = () => {
               class={`group bg-white rounded shadow hover:bg-${tool.color}/10 hover:shadow-md hover:-translate-y-1 transition`}>
               <a onClick={handleVoidClick} href="#" class="block p-4">
                 <div
-                  class={`bg-${tool.color}/5 w-fit -ml-4 pl-4 pr-2 py-1 rounded-r-md group-hover:bg-${tool.color}/20`}>
+                  class={`bg-${tool.color}/5 w-11 -ml-4 pl-4 pr-2 py-1 rounded-r-md group-hover:bg-${tool.color}/20`}>
                   <i class={`fa-solid fa-${tool.icon} text-${tool.color}`}></i>
                 </div>
                 <span class="block mt-3">{tool.name}</span>
