@@ -1,3 +1,5 @@
+const handleVoidClick = (e) => e.preventDefault()
+
 const Link = ({ link }) => (
   <a
     href="#"
