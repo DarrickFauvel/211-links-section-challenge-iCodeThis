@@ -76,7 +76,7 @@ const Services = ({ currentTab }) => {
   return (
     <ul
       role="tabpanel"
-      class={`px-4 py-3 rounded grid gap-3 mt-10 sm:grid-cols-2 lg:grid-cols-4 lg:mt-28 bg-${currentTab.color}/10 transition`}>
+      class={`px-4 py-3 rounded grid gap-3 mt-10 sm:grid-cols-2 lg:grid-cols-4 lg:mt-28 bg-${currentTab.color}/5 transition`}>
       {data.map((service, index) => (
         <li>
           <h2 class="text-cadetGray uppercase">{service.title}</h2>
