@@ -50,7 +50,7 @@ const Services = ({ currentTab }) => {
       links: [
         "Coporate app",
         "Internet banking",
-        "Mbile banking",
+        "Mobile banking",
         "Alert services",
         "Accounts",
         "Cards",
