@@ -150,13 +150,18 @@ const Tools = () => {
       <li>
         <h2 class="text-cadetGray uppercase">{data.title}</h2>
         <ul class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {data.links.map((tool, index) => (
+            <li
+              class={`group bg-white rounded shadow hover:bg-${tool.color}/10 hover:shadow-md hover:-translate-y-1 transition`}>
               <a onClick={handleVoidClick} href="#" class="block p-4">
+                <div
+                  class={`bg-${tool.color}/5 w-fit -ml-4 pl-4 pr-2 py-1 rounded-r-md group-hover:bg-${tool.color}/20`}>
                   <i class={`fa-solid fa-${tool.icon} text-${tool.color}`}></i>
-                  <span class="block mt-3">{tool.name}</span>
-                </a>
-              </li>
-            )
-          })}
+                </div>
+                <span class="block mt-3">{tool.name}</span>
+              </a>
+            </li>
+          ))}
         </ul>
       </li>
     </ul>
