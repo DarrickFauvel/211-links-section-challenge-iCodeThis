@@ -168,8 +168,17 @@ const Tools = () => {
   )
 }
 
+const Close = () => {
+  return (
+    <button class="absolute top-5 right-5 bg-seasalt h-10 w-10 rounded-full shadow hover:shadow-md hover:bg-red-100 hover:-translate-y-0.5 transition">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  )
+}
+
 const App = () => (
-  <div class="container mx-auto my-44 px-24 py-16 bg-white border rounded-lg">
+  <div class="container mx-auto my-44 px-24 py-16 bg-white rounded-lg relative">
+    <Close />
     <BankingTabs />
     <Tools />
   </div>
