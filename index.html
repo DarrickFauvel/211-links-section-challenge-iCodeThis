@@ -61,6 +61,30 @@
     <script type="text/babel">
       const handleVoidClick = (e) => e.preventDefault()
 
+      const How_iCodeThis = () => {
+        const details = {
+          title: "How iCodeThis?",
+          subtitle: "Code crafted by DarrickDevelops, using...",
+          notes: "",
+          stack: ["React JS components", "Tailwind CSS"],
+        }
+
+        return (
+          <section class="fixed bg-green-300 w-fit top-0 p-4">
+            <h2 class=" bg-blue-300 flex items-center justify-between mx-auto">
+              <span>{details.title}</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </h2>
+            <h3>{details.subtitle}</h3>
+            <ul>
+              {details.stack.map((item, index) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </section>
+        )
+      }
+
       const Link = ({ link }) => (
         <a
           onClick={handleVoidClick}
@@ -241,10 +265,11 @@
       }
 
       const App = () => (
-        <div class="container-sm m-10 px-10 pt-16 sm:pt-10 bg-white rounded-lg shadow relative border">
-          <Close />
+        <div class="relative container-sm m-10 px-10 pt-16 sm:pt-10 bg-white rounded-lg shadow border">
           <BankingTabs />
           <Tools />
+          <Close />
+          <How_iCodeThis />
         </div>
       )
 
