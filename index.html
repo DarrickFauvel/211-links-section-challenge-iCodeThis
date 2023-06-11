@@ -65,24 +65,49 @@
 
       const How_iCodeThis = () => {
         const details = {
-          title: "How iCodeThis?",
-          subtitle: "Code crafted by DarrickDevelops, using...",
+          title: "How I solved this iCodeThis challenge?",
+          subtitle: "Code crafted by DarrickDevelops",
+          challenge:
+            'Develop an interactive "links section" component that accurately represents the source mockup.',
           notes: "",
-          stack: ["React JS components", "Tailwind CSS"],
+          stack: [
+            { title: "React JS", note: "for components" },
+            { title: "Tailwind CSS", note: "for styling" },
+          ],
         }
 
         return (
-          <section class="fixed bg-green-300 w-fit top-0 p-4">
-            <h2 class=" bg-blue-300 flex items-center justify-between mx-auto">
+          <section class="fixed bg-[#181028] text-white w-fit top-0 rounded-b-lg overflow-hidden">
+            <h2 class=" bg-purple-800 flex items-center justify-between mx-auto px-4 py-2 rounded-b-lg">
               <span>{details.title}</span>
               <i class="fa-solid fa-chevron-down"></i>
             </h2>
-            <h3>{details.subtitle}</h3>
-            <ul>
-              {details.stack.map((item, index) => (
-                <li>{item}</li>
-              ))}
-            </ul>
+            <article class="bg-slate-900 p-4">
+              <ul>
+                <li>
+                  <span>Challenge: </span>
+                  <span>{details.challenge}</span>
+                </li>
+                <li>
+                  <ul>
+                    {details.stack.map((item, index) => (
+                      <li>
+                        <i class="fa-solid fa-check text-xs text-green-500"></i>
+                        <span class="ml-2 text-sm">{item.title}</span>
+                        <span class="ml-1 text-xs text-slate-500">
+                          {item.note}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              </ul>
+              <a
+                href="https://icodethis.com/DarrickDevelops"
+                class="block text-right text-xs hover:underline">
+                {details.subtitle}
+              </a>
+            </article>
           </section>
         )
       }
