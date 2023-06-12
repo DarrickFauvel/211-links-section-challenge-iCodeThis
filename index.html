@@ -63,51 +63,88 @@
     <script type="text/babel">
       const handleVoidClick = (e) => e.preventDefault()
 
-      const How_iCodeThis = () => {
-        const details = {
-          title: "How I solved this iCodeThis challenge?",
-          subtitle: "Code crafted by DarrickDevelops",
+      const ProjectDetails = () => {
+        const [isOpen, setIsOpen] = React.useState(false)
+        const [details, setDetails] = React.useState({
+          title: "About this project?",
+          builder: "Code crafted by DarrickDevelops",
           challenge:
-            'Develop an interactive "links section" component that accurately represents the source mockup.',
+            'Develop an interactive "links section" component that accurately represents the source screenshot mockup.',
           notes: "",
           stack: [
-            { title: "React JS", note: "for components" },
+            { title: "React JS", note: "for UI components" },
             { title: "Tailwind CSS", note: "for styling" },
+            {
+              title: "Responsive Design",
+              note: "for small to large displays",
+            },
+            { title: "HTML/CSS/JS", note: "for all the above ☝️" },
           ],
+        })
+
+        const handleDrawer = (boolean) => {
+          setIsOpen(boolean)
         }
 
         return (
-          <section class="fixed bg-[#181028] text-white w-fit top-0 rounded-b-lg overflow-hidden">
-            <h2 class=" bg-purple-800 flex items-center justify-between mx-auto px-4 py-2 rounded-b-lg">
-              <span>{details.title}</span>
-              <i class="fa-solid fa-chevron-down"></i>
-            </h2>
-            <article class="bg-slate-900 p-4">
-              <ul>
-                <li>
-                  <span>Challenge: </span>
-                  <span>{details.challenge}</span>
-                </li>
-                <li>
-                  <ul>
-                    {details.stack.map((item, index) => (
-                      <li>
-                        <i class="fa-solid fa-check text-xs text-green-500"></i>
-                        <span class="ml-2 text-sm">{item.title}</span>
-                        <span class="ml-1 text-xs text-slate-500">
-                          {item.note}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </li>
-              </ul>
-              <a
-                href="https://icodethis.com/DarrickDevelops"
-                class="block text-right text-xs hover:underline">
-                {details.subtitle}
-              </a>
-            </article>
+          <section class="container relative mx-auto">
+            <div class="fixed top-0 w-96 text-white">
+              <h2
+                onMouseEnter={() => handleDrawer(true)}
+                onClick={() => handleDrawer(!isOpen)}
+                class={`group fixed top-0 w-96 bg-purple-800 flex items-center justify-between mx-auto px-4 pt-2 rounded-b-lg cursor-pointer ${
+                  isOpen ? "translate-y-0 py-2" : "-translate-y-3"
+                } z-10 transition`}>
+                <i
+                  class={`fa-solid fa-gear ${
+                    isOpen
+                      ? "rotate-180 scale-100"
+                      : "scale-75 -translate-x-2 opacity-50"
+                  } transition text-yellow-400`}></i>
+                <span
+                  class={`block ${
+                    isOpen ? "scale-100" : "scale-75"
+                  } transition`}>
+                  {details.title}
+                </span>
+                <i
+                  class={`fa-solid fa-gear ${
+                    isOpen
+                      ? "-rotate-180 scale-100"
+                      : "scale-75 translate-x-2 opacity-50"
+                  } transition text-yellow-400`}></i>
+              </h2>
+
+              <article
+                class={`bg-slate-900/80 backdrop-blur-md px-4 pt-14 pb-1 rounded-b-lg ${
+                  isOpen ? "translate-y-0" : "-translate-y-full"
+                } transition`}>
+                <ul>
+                  <li>
+                    <strong>Challenge: </strong>
+                    <span class="text-sm">{details.challenge}</span>
+                  </li>
+                  <li>
+                    <ul>
+                      {details.stack.map((item, index) => (
+                        <li>
+                          <i class="fa-solid fa-check text-xs text-green-500"></i>
+                          <span class="ml-2 text-sm">{item.title}</span>
+                          <span class="ml-1 text-xs text-slate-400">
+                            {item.note}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                </ul>
+                <a
+                  href="https://icodethis.com/DarrickDevelops"
+                  class="block mt-3 text-center text-xs text-yellow-400 hover:underline">
+                  {details.builder}
+                </a>
+              </article>
+            </div>
           </section>
         )
       }
@@ -296,7 +333,7 @@
           <BankingTabs />
           <Tools />
           <Close />
-          <How_iCodeThis />
+          <ProjectDetails />
         </div>
       )
 
