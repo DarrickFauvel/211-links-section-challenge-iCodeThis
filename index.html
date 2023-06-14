@@ -81,11 +81,11 @@
 
         return (
           <section
-            class={`fixed top-0 left-1/2 right-1/2 -translate-x-1/2 w-96 text-white z-50`}>
+            class={`fixed top-0 left-1/2 right-1/2 -translate-x-1/2 w-[80%] text-white z-50`}>
             <button
               onMouseEnter={() => handleDrawer(true)}
               onClick={() => handleDrawer(!isOpen)}
-              class={`group fixed -top-3 w-96 bg-purple-800 flex items-center justify-between mx-auto px-4 pt-2 rounded-b-lg cursor-pointer z-10 transition duration-1000 ${
+              class={`group fixed -top-3 w-full bg-purple-800 flex items-center justify-between mx-auto px-4 pt-2 rounded-b-lg cursor-pointer z-10 transition duration-1000 ${
                 isOpen && "translate-y-3 py-2"
               }`}>
               <i
