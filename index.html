@@ -81,7 +81,7 @@
 
         return (
           <section
-            class={`fixed top-0 left-1/2 right-1/2 -translate-x-1/2 w-[80%] text-white z-50`}>
+            class={`fixed top-0 left-1/2 right-1/2 -translate-x-1/2 w-[80%] sm:w-96 text-white z-50`}>
             <button
               onMouseEnter={() => handleDrawer(true)}
               onClick={() => handleDrawer(!isOpen)}
@@ -109,8 +109,8 @@
             </button>
 
             <article
-              class={`absolute -top-[250px] bg-slate-800/80 backdrop-blur-md px-4 pt-14 pb-1 rounded-b-lg transition duration-1000 ${
-                isOpen && "translate-y-[250px]"
+              class={`absolute -top-[300px] bg-slate-800/80 backdrop-blur-md px-4 pt-14 pb-1 rounded-b-lg transition duration-1000 ${
+                isOpen && "translate-y-[300px]"
               }`}>
               <ul>
                 <li>
