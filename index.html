@@ -73,41 +73,45 @@
             { title: "HTML/CSS/JS", note: "for all the above ☝️" },
           ],
         })
+        const drawerRef = React.useRef(null)
 
         const handleDrawer = (boolean) => {
           setIsOpen(boolean)
         }
 
         return (
-          <section class="fixed top-0 left-1/2 right-1/2 -translate-x-1/2 w-96 text-white z-50">
+          <section
+            class={`fixed top-0 left-1/2 right-1/2 -translate-x-1/2 w-96 text-white z-50`}>
             <button
               onMouseEnter={() => handleDrawer(true)}
               onClick={() => handleDrawer(!isOpen)}
-              class={`group fixed top-0 w-96 bg-purple-800 flex items-center justify-between mx-auto px-4 pt-2 rounded-b-lg cursor-pointer ${
-                isOpen ? "translate-y-0 py-2" : "-translate-y-3"
-              } z-10 transition`}>
+              class={`group fixed -top-3 w-96 bg-purple-800 flex items-center justify-between mx-auto px-4 pt-2 rounded-b-lg cursor-pointer z-10 transition duration-1000 ${
+                isOpen && "translate-y-3 py-2"
+              }`}>
               <i
-                class={`fa-solid fa-gear ${
+                class={`fa-solid fa-gear transition duration-1000 text-yellow-400 ${
                   isOpen
                     ? "rotate-180 scale-100"
                     : "scale-75 -translate-x-2 opacity-50"
-                } transition text-yellow-400`}></i>
+                }`}></i>
               <span
-                class={`block ${isOpen ? "scale-100" : "scale-75"} transition`}>
+                class={`block text-sm py-1 transition duration-1000 ${
+                  isOpen ? "scale-[1.2]" : "scale-100"
+                }`}>
                 {details.title}
               </span>
               <i
-                class={`fa-solid fa-gear ${
+                class={`fa-solid fa-gear transition duration-1000 text-yellow-400 ${
                   isOpen
                     ? "-rotate-180 scale-100"
                     : "scale-75 translate-x-2 opacity-50"
-                } transition text-yellow-400`}></i>
+                }`}></i>
             </button>
 
             <article
-              class={`absolute bg-slate-900/80 backdrop-blur-md px-4 pt-14 pb-1 rounded-b-lg ${
-                isOpen ? " animate-slideDown" : ""
-              } transition`}>
+              class={`absolute -top-[250px] bg-slate-800/80 backdrop-blur-md px-4 pt-14 pb-1 rounded-b-lg transition duration-1000 ${
+                isOpen && "translate-y-[250px]"
+              }`}>
               <ul>
                 <li>
                   <strong>Challenge: </strong>
