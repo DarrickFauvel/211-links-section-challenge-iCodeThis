@@ -85,6 +85,7 @@
             <button
               onMouseEnter={() => handleDrawer(true)}
               onClick={() => handleDrawer(!isOpen)}
+              onTouchEnd={() => handleDrawer(!isOpen)}
               class={`group fixed -top-3 w-full bg-purple-800 flex items-center justify-between mx-auto px-4 pt-2 rounded-b-lg cursor-pointer z-10 transition duration-1000 ${
                 isOpen && "translate-y-3 py-2"
               }`}>
